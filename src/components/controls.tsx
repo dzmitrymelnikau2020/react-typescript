@@ -1,6 +1,15 @@
-import PropTypes from 'prop-types';
+type ControlPanelProps =  {
+  name: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
 
-const ControlPanel = ({ name, onChange }) => {
+/* interface AdminControlPanelProps extends ControlPanelProps{
+  isAdmin?: true
+} */
+
+/* type AdminControlPanelProps = ControlPanelProps & { isAdmin?: true } */
+
+const ControlPanel = ({ name, onChange }: ControlPanelProps): JSX.Element => {
   return (
     <form
       className="flex flex-row gap-4 text-white bg-primary-10"
@@ -18,11 +27,6 @@ const ControlPanel = ({ name, onChange }) => {
       </div>
     </form>
   );
-};
-
-ControlPanel.propTypes = {
-  name: PropTypes.string,
-  onChange: PropTypes.func,
 };
 
 export default ControlPanel;
