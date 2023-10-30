@@ -64,7 +64,7 @@ export const filterItems = (
   items: Item[] = [],
   properties: Readonly<Partial<Item>>,
 ) => {
-  return items.filter((item) => {
+  return items?.filter((item) => {
     for (const [filterKey, filterValue] of Object.entries(properties)) {
       if (filterKey === 'name' && typeof filterValue === 'string') {
         return item.name.toLowerCase().startsWith(filterValue.toLowerCase());

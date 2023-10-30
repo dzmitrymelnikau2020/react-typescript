@@ -1,5 +1,5 @@
 import { memo, useState } from 'react';
-import { filterItems } from '../lib/items';
+import { filterItems } from '../features/items/items';
 import { toKebabCase } from '../lib/kebab-case';
 import Item from './item';
 
@@ -31,7 +31,12 @@ const ItemList = ({ title = 'Items', items, update, remove }) => {
       </header>
       <ul className="flex flex-col gap-2">
         {filteredItems.map((item) => (
-          <Item key={item.id} item={item} update={update} remove={remove} />
+          <Item 
+          key={item.id}
+           item={item}
+           update={update}
+           remove={remove}
+            />
         ))}
       </ul>
       {isEmpty && (

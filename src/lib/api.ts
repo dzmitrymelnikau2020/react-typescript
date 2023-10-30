@@ -1,4 +1,4 @@
-import { getInitialItems } from './items';
+import { getInitialItems } from '../features/items/items';
 import { sleep } from './slow-down';
 
 const delay = 2000;
