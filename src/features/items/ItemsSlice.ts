@@ -1,5 +1,6 @@
 import { v4 as id } from 'uuid';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from '../../store';
 
 type Item = {
   id: string,
@@ -59,6 +60,9 @@ export const itemsSlice = createSlice({
     }
   }
 });
+
+export const selectItems = (state: RootState) => state.items
+
 
 export const {
   itemsFetching,

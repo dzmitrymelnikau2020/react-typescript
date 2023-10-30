@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 
 import itemsReducer from './features/items/ItemsSlice'
 
-
+const rootReducer = combineReducers({
+  items: itemsReducer
+});
 
 const store = configureStore({
-    reducer: { 
-      items: itemsReducer
-    },
-    //middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(logger),
     devTools: process.env.NODE_ENV !== 'production',
     //preloadedState,
     //enhancers: [batchedSubscribe(debounceNotify)],
